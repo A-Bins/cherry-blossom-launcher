@@ -5,21 +5,121 @@
 }
 .Cherry {
   font-family: 'cherry';
-  margin-top: 20px;
+  position: relative;
+  top: 40px;
 }
 .menubar-menu-button{
   visibility: hidden;
   margin-left: -16px;
 }
+.email_info{
+  color: #949494;
+  z-index: 3;
+  position: absolute;
+  top: 260px;
+}
+.Minecraft_logo{
+  z-index: 3;
+  position: absolute;
+  top: 100px;
+  width: 260px;
+  height: 120px;
+}
+.login:hover{
+	background-color: #5d487a;
+	cursor: pointer;
+}
+.loginActive{
+  position:absolute;
+  top: 440px;
+  text-align: center;
+  font-family: 'cherry';
+  font-size: 11px;
+  z-index: 4;
+  width: 220px;
+  height: 35px;
+  background-color: #7c659a;
+  color: #3a3a3a;
+  outline:none;
+  border:#7c659a;
+  border-radius: 7px;
+  box-shadow: 0 4px 10px #242427;
+
+}
+.login:active{
+  box-shadow: 0 4px 10px #242427;
+  background-color: #7c659a;
+}
+.login{
+  position:absolute;
+  top: 440px;
+  text-align: center;
+  font-family: 'cherry';
+  font-size: 11px;
+  z-index: 4;
+  width: 220px;
+  height: 35px;
+  background-color: #7c659a;
+  color: #dbdbdb;
+  outline:none;
+  border:#7c659a;
+  border-radius: 7px;
+  box-shadow: 0 4px 10px #000000;
+}
+.info{
+  color: #969696;
+  z-index: 3;
+  font-size: 20px;
+  text-shadow: 0 2px 15px #000000;
+  position: absolute;
+  top: 180px;
+}
+.password_info{
+  color: #949494;
+  z-index: 3;
+  position: absolute;
+  top: 320px;
+}
+.email{
+  position: absolute;
+  top: 290px;
+  border-radius: 7px;
+  background-color: #5b5b5b;
+  outline:none;
+  border:#5b5b5b;
+  width: 200px;
+  height: 30px;
+  box-shadow: 0 1px 5px hsl(0, 0%, 0%);
+}
+.password{
+  position: absolute;
+  top: 350px;
+  border-radius: 7px;
+  background-color: #5b5b5b;
+  outline:none;
+  border:#5b5b5b;
+  width: 200px;
+  height: 30px;
+  box-shadow: 0 1px 5px hsl(0, 0%, 0%);
+}
 /*#D3CCE3 
 #E9E4F0*/
-
+.Frame{
+  position:absolute;
+  top: 100px;
+  width: 300px;
+  height: 400px;
+  background-color: #242427;
+  border-radius: 15px;
+  box-shadow: 0 2px 12px hsl(0, 0%, 0%);
+}
 .Blossom {
   background: linear-gradient(to bottom right, #D3CCE3, #E9E4F0);
   display: flex;
   align-items: center;
   flex-direction: column;
-  min-height: 100vh;
+  margin-top: -10px;
+  min-height: 120vh;
   font-size: 11.5px;
   color: #777777;
 }
