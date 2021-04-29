@@ -5,11 +5,17 @@
 }
 .Cherry {
   font-family: 'cherry';
+  margin-top: 20px;
 }
-
+.menubar-menu-button{
+  visibility: hidden;
+  margin-left: -16px;
+}
+/*#D3CCE3 
+#E9E4F0*/
 
 .Blossom {
-  background-color: #282c34;
+  background: linear-gradient(to bottom right, #D3CCE3, #E9E4F0);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -18,4 +24,21 @@
   color: #777777;
 }
 
+.link_forget:link {text-decoration: none; color: #605b7f;}
+.link_forget:visited {text-decoration: none; color: #605b7f;}
+.link_forget:active {text-decoration: none; color: #605b7f;}
+.link_forget:hover {text-decoration: underline; color: #7965f3;}
 
+
+
+.link_none:link {text-decoration: none; color: #605b7f;}
+.link_none:visited {text-decoration: none; color: #605b7f;}
+.link_none:active {text-decoration: none; color: #605b7f;}
+.link_none:hover {text-decoration: underline; color: #7965f3;}
+
+.link_forget{
+  position: absolute; top: 600px;
+}
+.link_none{
+  position: absolute; top: 615px;
+}

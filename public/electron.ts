@@ -2,25 +2,41 @@
 import * as path from "path";
 import * as url from "url";
 
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, shell, ipcMain } from "electron";
 import * as isDev from "electron-is-dev";
 
 // config 파일로 따로 선언하여도 좋습니다.
 const baseUrl: string = "http://localhost:3000";
 
-let mainWindow: BrowserWindow | null;
-
 function createMainWindow(): void {
-  mainWindow = new BrowserWindow({
+  let mainWindow: BrowserWindow = new BrowserWindow({
     width: 1080,
     height: 700,
     autoHideMenuBar: true,
+    frame: false,
+    show: false,
+    resizable: false,
+    center: true,
+    icon: path.join(__dirname,'../src/icons/icon.png'),
+    titleBarStyle: "hidden", // add this line
+    backgroundColor: "#D3CCE3",
     title: "Cherry Blossom Launcher",
     // 위 path, url 모듈을 사용하기 위해서 Node 환경을 Electron에 합치는 것을 뜻합니다.
     webPreferences: {
       nodeIntegration: true,
-    },
-  });
+      nodeIntegrationInSubFrames:true,
+      nodeIntegrationInWorker:true,
+      enableRemoteModule: true,
+      contextIsolation:false
+    }});
+
+    mainWindow.on('closed', () => {
+      mainWindow = null 
+    })
+
+    mainWindow.once('ready-to-show', () => {
+      mainWindow.show()
+    })
   
   // 2021.03.28 수정
   // 실제로 배포된 어플리케이션에서는 빌드된 index.html 파일을 서빙합니다.  
@@ -34,24 +50,13 @@ function createMainWindow(): void {
   if (isDev) {
     mainWindow.webContents.openDevTools();
   }
-
-  mainWindow.on("closed", (): void => {
-    mainWindow = null;
-  });
 }
 
 // 어플리케이션이 준비가 되었다면 데스크탑 어플리케이션으로 실행합니다.
-app.on("ready", (): void => {
-  createMainWindow();
-});
+app.on("ready", createMainWindow);
 
+ipcMain.on('loadGH', (event, arg) => {
+  shell.openExternal(arg);
+});
 // 모든 윈도우가 닫혔다면 어플리케이션을 종료합니다.
-app.on("window-all-closed", (): void => {
-  app.quit();
-});
-
-app.on("activate", (): void => {
-  if (mainWindow === null) {
-    createMainWindow();
-  }
-});
+app.on("window-all-closed", app.quit);
