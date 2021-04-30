@@ -9,6 +9,7 @@
   top: 40px;
 }
 .menubar-menu-button{
+  font-family: 'cherry';
   visibility: hidden;
   margin-left: -16px;
 }
@@ -26,7 +27,7 @@
   height: 120px;
 }
 .login:hover{
-	background-color: #5d487a;
+	background-color: #af7b79;
 	cursor: pointer;
 }
 .loginActive{
@@ -38,17 +39,17 @@
   z-index: 4;
   width: 220px;
   height: 35px;
-  background-color: #7c659a;
+  background-color: #e09a96;
   color: #3a3a3a;
   outline:none;
-  border:#7c659a;
+  border:#e09a96;
   border-radius: 7px;
   box-shadow: 0 4px 10px #242427;
 
 }
 .login:active{
   box-shadow: 0 4px 10px #242427;
-  background-color: #7c659a;
+  background-color: #e09a96;
 }
 .login{
   position:absolute;
@@ -59,10 +60,10 @@
   z-index: 4;
   width: 220px;
   height: 35px;
-  background-color: #7c659a;
+  background-color: #d3928d;
   color: #dbdbdb;
   outline:none;
-  border:#7c659a;
+  border:#d3928d;
   border-radius: 7px;
   box-shadow: 0 4px 10px #000000;
 }
@@ -114,7 +115,7 @@
   box-shadow: 0 2px 12px hsl(0, 0%, 0%);
 }
 .Blossom {
-  background: linear-gradient(to bottom right, #D3CCE3, #E9E4F0);
+  background: linear-gradient(to bottom right, #faaca8, #ddd6f3);
   display: flex;
   align-items: center;
   flex-direction: column;

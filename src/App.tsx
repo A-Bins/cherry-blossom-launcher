@@ -1,3 +1,5 @@
+import axios from 'axios'
+import { app } from 'electron'
 import React, {ChangeEvent} from 'react'
 import './App.css'
 import Minecraft_logo from "./icons/minecraft_logo.png"
@@ -30,17 +32,52 @@ class App extends React.Component<{}, State> {
   }
 
   render(){
-    const login = (enter: Boolean) =>{
+    const login = async (enter: Boolean) =>{
       if(enter){
         this.loginButtonRef[0].className = "loginActive"
         setTimeout(() =>{
           this.loginButtonRef[0].className = "login"
         }, 50)
       }
-      const login_titles: string[] = ["모장한테 물어볼게욘!", "기다리세욘! 금방 다녀와욘", "요청중이에욘!", "옆집 아저씨께 물어볼께욘!"]
+      const login_titles: string[] = 
+          ["모장한테 물어볼게욘!", 
+          "기다리세욘! 금방 다녀와욘", 
+          "요청중이에욘!", 
+          "옆집 아저씨께 물어볼께욘!", 
+          "라면에 물 붇고 올게욘" ]
       const login_title = login_titles[Math.floor(Math.random() * login_titles.length)];
       this.loginButtonRef[0].value = login_title
+      
+      try {
+        const config = {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": true,
+            "Content-Type": "application/json"
+          }
+        }        
+        const result = await axios.post('https://authserver.mojang.com/authenticate',
+            {
+                agent: {
+                    name: "Minecraft",
+                    version: 1
+                },
+                username: this.state.email,
+                password: this.state.email,
+                requestUser: true
+            },
+            config
+
+        )
+    } catch(i) {
+      console.log(i)
+      this.loginButtonRef[0].value = "윽! 아니자나욘!"
+      setTimeout(() =>{
+        this.loginButtonRef[0].value = "로그인"
+      }, 2000)
+      console.log(`실패.. ${i}`) 
     }
+}
     window.onkeydown = function(e: KeyboardEvent){
       if(!e){
         return
