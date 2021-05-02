@@ -1,14 +1,14 @@
 import React from 'react';
 import {HashRouter, Route} from 'react-router-dom'
 import './index.css';
-import App from './App';
+import Login from './login';
 import reportWebVitals from './reportWebVitals';
 import ReactDOM from 'react-dom';
 
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
-      <Route exact path="/" component={App}/>
+      <Route exact path="/" component={Login}/>
     </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')

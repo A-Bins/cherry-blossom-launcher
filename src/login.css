@@ -17,7 +17,7 @@
   color: #949494;
   z-index: 3;
   position: absolute;
-  top: 260px;
+  top: 225px;
 }
 .Minecraft_logo{
   z-index: 3;
@@ -32,7 +32,7 @@
 }
 .loginActive{
   position:absolute;
-  top: 440px;
+  top: 420px;
   text-align: center;
   font-family: 'cherry';
   font-size: 11px;
@@ -53,7 +53,7 @@
 }
 .login{
   position:absolute;
-  top: 440px;
+  top: 420px;
   text-align: center;
   font-family: 'cherry';
   font-size: 11px;
@@ -67,6 +67,20 @@
   border-radius: 7px;
   box-shadow: 0 4px 10px #000000;
 }
+.error{
+  position:absolute;
+  top: 380px;
+  color: #cf3b3b;
+  -webkit-animation: vibrate-3 0.4s linear 3;
+  animation: vibrate-3 0.4s linear 3;
+
+}
+.noterror{
+  position:absolute;
+  top: 380px;
+  color: #cf3b3b;
+  visibility: hidden;
+}
 .info{
   color: #969696;
   z-index: 3;
@@ -79,11 +93,11 @@
   color: #949494;
   z-index: 3;
   position: absolute;
-  top: 320px;
+  top: 285px;
 }
 .email{
   position: absolute;
-  top: 290px;
+  top: 255px;
   border-radius: 7px;
   background-color: #5b5b5b;
   outline:none;
@@ -94,7 +108,7 @@
 }
 .password{
   position: absolute;
-  top: 350px;
+  top: 315px;
   border-radius: 7px;
   background-color: #5b5b5b;
   outline:none;
@@ -109,7 +123,7 @@
   position:absolute;
   top: 100px;
   width: 300px;
-  height: 400px;
+  height: 375px;
   background-color: #242427;
   border-radius: 15px;
   box-shadow: 0 2px 12px hsl(0, 0%, 0%);
@@ -142,4 +156,99 @@
 }
 .link_none{
   position: absolute; top: 615px;
+}
+
+
+
+@-webkit-keyframes vibrate-3 {
+  0% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  10% {
+    -webkit-transform: translate(-2px, -2px);
+            transform: translate(-2px, -2px);
+  }
+  20% {
+    -webkit-transform: translate(2px, -2px);
+            transform: translate(2px, -2px);
+  }
+  30% {
+    -webkit-transform: translate(-2px, 2px);
+            transform: translate(-2px, 2px);
+  }
+  40% {
+    -webkit-transform: translate(2px, 2px);
+            transform: translate(2px, 2px);
+  }
+  50% {
+    -webkit-transform: translate(-2px, -2px);
+            transform: translate(-2px, -2px);
+  }
+  60% {
+    -webkit-transform: translate(2px, -2px);
+            transform: translate(2px, -2px);
+  }
+  70% {
+    -webkit-transform: translate(-2px, 2px);
+            transform: translate(-2px, 2px);
+  }
+  80% {
+    -webkit-transform: translate(-2px, -2px);
+            transform: translate(-2px, -2px);
+  }
+  90% {
+    -webkit-transform: translate(2px, -2px);
+            transform: translate(2px, -2px);
+  }
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+@keyframes vibrate-3 {
+  0% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  10% {
+    -webkit-transform: translate(-2px, -2px);
+            transform: translate(-2px, -2px);
+  }
+  20% {
+    -webkit-transform: translate(2px, -2px);
+            transform: translate(2px, -2px);
+  }
+  30% {
+    -webkit-transform: translate(-2px, 2px);
+            transform: translate(-2px, 2px);
+  }
+  40% {
+    -webkit-transform: translate(2px, 2px);
+            transform: translate(2px, 2px);
+  }
+  50% {
+    -webkit-transform: translate(-2px, -2px);
+            transform: translate(-2px, -2px);
+  }
+  60% {
+    -webkit-transform: translate(2px, -2px);
+            transform: translate(2px, -2px);
+  }
+  70% {
+    -webkit-transform: translate(-2px, 2px);
+            transform: translate(-2px, 2px);
+  }
+  80% {
+    -webkit-transform: translate(-2px, -2px);
+            transform: translate(-2px, -2px);
+  }
+  90% {
+    -webkit-transform: translate(2px, -2px);
+            transform: translate(2px, -2px);
+  }
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
 }

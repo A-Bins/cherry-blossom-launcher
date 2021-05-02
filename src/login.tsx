@@ -1,15 +1,19 @@
 import axios from 'axios'
-import { app } from 'electron'
 import React, {ChangeEvent} from 'react'
-import './App.css'
+import './login.css'
 import Minecraft_logo from "./icons/minecraft_logo.png"
 
+
+
+const Cherryblossom = require('react-cherryblossom');
+axios.defaults.withCredentials = false
 interface State {
   email: string,
   password: string
 }
 class App extends React.Component<{}, State> {
   loginButtonRef: any
+  errorMessage: any
   constructor (props: any){
     super(props)
     this.state = {
@@ -17,6 +21,7 @@ class App extends React.Component<{}, State> {
       password: "",
     }
     this.loginButtonRef = []
+    this.errorMessage = []
   }
   emailChange = (e: ChangeEvent<HTMLInputElement>) => {
     this.setState({
@@ -30,7 +35,25 @@ class App extends React.Component<{}, State> {
       password: e.target.value
     })
   }
-
+  async authPost(email: string, password: string): Promise<boolean>{
+    try {
+      const result = await axios.post('https://authserver.mojang.com/authenticate',
+          {
+              agent: {
+                  name: "Minecraft",
+                  version: 1
+              },
+              username: email,
+              password: password,
+              requestUser: true
+          }
+      )
+    
+      return true
+    }  catch(i) {
+        return false
+    }
+  }
   render(){
     const login = async (enter: Boolean) =>{
       if(enter){
@@ -47,37 +70,21 @@ class App extends React.Component<{}, State> {
           "라면에 물 붇고 올게욘" ]
       const login_title = login_titles[Math.floor(Math.random() * login_titles.length)];
       this.loginButtonRef[0].value = login_title
-      
-      try {
-        const config = {
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Credentials": true,
-            "Content-Type": "application/json"
-          }
-        }        
-        const result = await axios.post('https://authserver.mojang.com/authenticate',
-            {
-                agent: {
-                    name: "Minecraft",
-                    version: 1
-                },
-                username: this.state.email,
-                password: this.state.email,
-                requestUser: true
-            },
-            config
-
-        )
-    } catch(i) {
-      console.log(i)
-      this.loginButtonRef[0].value = "윽! 아니자나욘!"
-      setTimeout(() =>{
-        this.loginButtonRef[0].value = "로그인"
-      }, 2000)
-      console.log(`실패.. ${i}`) 
-    }
-}
+      this.authPost(this.state.email, this.state.password).then( ref =>{
+        if(ref){
+          this.loginButtonRef[0].value = "성공!"
+          console.log("[Auth] 로그인 성공!")
+        }else{
+          console.log("[Auth] 로그인 실패...")
+          this.loginButtonRef[0].value = "윽! 아니자나욘!"
+          this.errorMessage[0].className = "error"
+          setTimeout(() =>{
+            this.errorMessage[0].className = "noterror"
+            this.loginButtonRef[0].value = "로그인"
+          }, 2000) 
+        }
+      })
+  }
     window.onkeydown = function(e: KeyboardEvent){
       if(!e){
         return
@@ -88,13 +95,13 @@ class App extends React.Component<{}, State> {
     }
     return (
       <div className="Cherry">
-        
         <header className="Blossom">
           <img alt="minecraft_logo" src={Minecraft_logo} className="Minecraft_logo"></img>
           {/* <p className="info">Minecraft</p> */}
           <p className="email_info">이메일</p>
           <p className="password_info">비밀번호</p>
           <span className="Frame"></span>
+          <p className="noterror" ref={a => this.errorMessage[0] = a}>비밀번호 혹은 이메일이 틀린거 같아욘!!</p>
           <input 
           className="login" 
           type="button" 

@@ -22,6 +22,7 @@ function createMainWindow() {
         title: "Cherry Blossom Launcher",
         // 위 path, url 모듈을 사용하기 위해서 Node 환경을 Electron에 합치는 것을 뜻합니다.
         webPreferences: {
+            webSecurity: false,
             nodeIntegration: true,
             nodeIntegrationInSubFrames: true,
             nodeIntegrationInWorker: true,
