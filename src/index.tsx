@@ -2,6 +2,7 @@ import React from 'react';
 import {HashRouter, Route} from 'react-router-dom'
 import './index.css';
 import Login from './login';
+import Client from './client';
 import reportWebVitals from './reportWebVitals';
 import ReactDOM from 'react-dom';
 
@@ -9,6 +10,7 @@ ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
       <Route exact path="/" component={Login}/>
+      <Route path="/Client" component={Client}/>
     </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')

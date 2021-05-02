@@ -106,6 +106,16 @@
   height: 30px;
   box-shadow: 0 1px 5px hsl(0, 0%, 0%);
 }
+
+.link_develpment:link {text-decoration: none; color: #605b7f;}
+.link_develpment:visited {text-decoration: none; color: #605b7f;}
+.link_develpment:active {text-decoration: none; color: #605b7f;}
+.link_develpment:hover {text-decoration: underline; color: #7965f3;}
+
+.link_develpment{
+  position: absolute; top: 580px;
+  z-index: 10;
+}
 .password{
   position: absolute;
   top: 315px;
