@@ -113,6 +113,7 @@
 .link_develpment:hover {text-decoration: underline; color: #7965f3;}
 
 .link_develpment{
+  left: 530px;
   position: absolute; top: 580px;
   z-index: 10;
 }

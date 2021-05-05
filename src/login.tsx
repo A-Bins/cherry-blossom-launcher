@@ -3,6 +3,7 @@ import React, {ChangeEvent, Component} from 'react'
 import './login.css'
 import Minecraft_logo from "./icons/minecraft_logo.png"
 import { Link } from 'react-router-dom';
+import info from './user/info'
 
 axios.defaults.withCredentials = false
 interface State {
@@ -33,25 +34,6 @@ class Login extends Component<{history: any}, State> {
       password: e.target.value
     })
   }
-  async authPost(email: string, password: string): Promise<boolean>{
-    try {
-      const result = await axios.post('https://authserver.mojang.com/authenticate',
-          {
-              agent: {
-                  name: "Minecraft",
-                  version: 1
-              },
-              username: email,
-              password: password,
-              requestUser: true
-          }
-      )
-    
-      return true
-    }  catch(i) {
-        return false
-    }
-  }
   render(){
     const login = async (enter: Boolean) =>{
       if(enter){
@@ -68,7 +50,7 @@ class Login extends Component<{history: any}, State> {
           "라면에 물 붇고 올게욘" ]
       const login_title = login_titles[Math.floor(Math.random() * login_titles.length)];
       this.loginButtonRef[0].value = login_title
-      this.authPost(this.state.email, this.state.password).then( ref =>{
+      info.authPost(this.state.email, this.state.password).then( ref =>{
         if(ref){
           this.props.history.push('/Client')
           console.log("[Auth] 로그인 성공!")
