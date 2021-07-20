@@ -43,9 +43,9 @@ function createMainWindow() {
     // 개발 환경 여부 확인 후 맞는 url/file로 서빙합니다.
     mainWindow.loadURL(isDev ? baseUrl : mainWindowUrl);
     // 개발 환경의 경우 Chrome의 개발자 도구를 열어 사용합니다.
-    if (isDev) {
-        mainWindow.webContents.openDevTools();
-    }
+    // if (isDev) {
+    // mainWindow.webContents.openDevTools();
+    // }
 }
 // 어플리케이션이 준비가 되었다면 데스크탑 어플리케이션으로 실행합니다.
 electron_1.app.on("ready", createMainWindow);
