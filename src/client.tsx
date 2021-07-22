@@ -17,9 +17,7 @@ class Client extends React.Component<any, states>{
     
     optionRef: (HTMLDivElement | null)[] = []
     optionSpread() {
-        this.optionRef[0]!.style.display = "flex"
         this.optionRef[0]!.style.animation = "down 0.5s forwards"
-
         this.setState({
             optionValue: "∨"
         })
@@ -39,8 +37,8 @@ class Client extends React.Component<any, states>{
         function hoverDone() {
             hoverRef[0]!.style.display = "none"
         }
-        const name: string = Info.userData.name === "" ? "A_bins" : Info.userData.name;
-        const id: string = Info.userData.uuid === "" ? "cbe06212-6680-4775-ad3b-7395b18777f0" : Info.userData.uuid
+        const name = Info.userData.name === "" ? "A_bins" : Info.userData.name;
+        const id = Info.userData.uuid === "" ? "cbe06212-6680-4775-ad3b-7395b18777f0" : Info.userData.uuid
         return(
             <div className="Client">
                 <div className="Title">
@@ -53,7 +51,11 @@ class Client extends React.Component<any, states>{
                         <div className="option" onClick={() => this.state.optionValue === "∨" ? this.optionFolding() : this.optionSpread()}>{this.state.optionValue}</div>
                         <div className="options" ref={(e) => this.optionRef[0] = e}>
                             <div className="JVM">
-                                대충 JVM 설정하는거임 호호호호호호호호호호호
+                                대충 설정하는거임 호호호호호호호호호호호
+                            </div><div className="JVM">
+                                대충 설정하는거임 호호호호호호호호호호호
+                            </div><div className="JVM">
+                                대충 설정하는거임 호호호호호호호호호호호
                             </div>
                         </div>
                     </div>
