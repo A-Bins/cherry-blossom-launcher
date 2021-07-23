@@ -2,7 +2,7 @@
 import * as path from "path";
 import * as url from "url";
 
-import { app, BrowserWindow, shell, ipcMain } from "electron";
+import { app, BrowserWindow } from "electron";
 import * as isDev from "electron-is-dev";
 
 // config 파일로 따로 선언하여도 좋습니다.
@@ -56,8 +56,5 @@ function createMainWindow(): void {
 // 어플리케이션이 준비가 되었다면 데스크탑 어플리케이션으로 실행합니다.
 app.on("ready", createMainWindow);
 
-ipcMain.on('loadGH', (event, arg) => {
-  shell.openExternal(arg);
-});
 // 모든 윈도우가 닫혔다면 어플리케이션을 종료합니다.
 app.on("window-all-closed", app.quit);

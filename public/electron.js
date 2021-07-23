@@ -49,8 +49,5 @@ function createMainWindow() {
 }
 // 어플리케이션이 준비가 되었다면 데스크탑 어플리케이션으로 실행합니다.
 electron_1.app.on("ready", createMainWindow);
-electron_1.ipcMain.on('loadGH', function (event, arg) {
-    electron_1.shell.openExternal(arg);
-});
 // 모든 윈도우가 닫혔다면 어플리케이션을 종료합니다.
 electron_1.app.on("window-all-closed", electron_1.app.quit);

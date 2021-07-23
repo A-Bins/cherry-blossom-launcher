@@ -3,6 +3,7 @@ import React, {ChangeEvent, Component} from 'react'
 import './login.css'
 import Minecraft_logo from "./icons/minecraft_logo.png"
 import { Link } from 'react-router-dom';
+import Music from "./user/music"
 import info from './user/info'
 
 axios.defaults.withCredentials = false
@@ -15,6 +16,7 @@ class Login extends Component<{history: any}, State> {
   errorMessage: any
   constructor (props: any){
     super(props)
+    Music.music.pause()
     this.state = {
       email: "",
       password: "",
@@ -53,16 +55,13 @@ class Login extends Component<{history: any}, State> {
       info.authPost(this.state.email, this.state.password).then( ref =>{
         if(ref){
           this.props.history.push('/Client')
-          console.log("[Auth] 로그인 성공!")
-
         }else{
-          console.log("[Auth] 로그인 실패...")
           this.loginButtonRef[0].value = "윽! 아니자나욘!"
           this.errorMessage[0].className = "error"
           setTimeout(() =>{
             this.errorMessage[0].className = "noterror"
             this.loginButtonRef[0].value = "로그인"
-          }, 3000) 
+          }, 2500) 
         }
       })
   }
